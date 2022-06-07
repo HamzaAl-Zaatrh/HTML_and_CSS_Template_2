@@ -1,0 +1,303 @@
+/* Start Variables  */
+:root {
+  --main-color: #19c8fa;
+  --transparent-color: rgb(15 116 143 / 70%);
+}
+/* End Variables  */
+
+/* Start Global Rules */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* End Global Rules */
+
+/* Start Comoinents */
+.main-heading {
+  margin: 100px 0px;
+  text-align: center;
+}
+
+.main-heading h2 {
+  font-weight: normal;
+  font-size: 40px;
+  margin-bottom: 70px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.main-heading h2::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  background-color: black;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.main-heading h2::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border: black solid 2px;
+  border-radius: 50%;
+  bottom: -38px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.main-heading p {
+  max-width: 550px;
+  line-height: 2;
+  color: #777;
+  margin: auto;
+}
+
+/* End Comoinents */
+
+/* Start Header */
+header {
+  position: absolute; /* To make it out I calculated the screen */
+  width: 100%;
+  left: 0;
+  z-index: 2;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  min-height: 97px;
+}
+
+header .container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  width: calc(100% - 30px);
+  height: 1px;
+  background-color: #a2a2a2;
+}
+
+header nav {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+header nav .toggle-menu {
+  color: white;
+  font-size: 22px;
+}
+
+@media (min-width: 768px) {
+  header nav .toggle-menu {
+    display: none;
+  }
+}
+
+header nav ul {
+  display: flex;
+}
+
+@media (max-width: 767px) {
+  header nav ul {
+    display: none;
+  }
+
+  header nav .toggle-menu:hover + ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 15px;
+    width: calc(100% - 30px);
+    text-align: center;
+    background-color: rgb(0 0 0 / 50%);
+  }
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  font-size: 14px;
+  transition: 0.3s;
+  padding: 40px 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+header nav ul li a.active,
+header nav ul li a:hover {
+  color: var(--main-color);
+  border-bottom: 1px solid var(--main-color);
+}
+
+@media (max-width: 767px) {
+  header nav ul li a {
+    padding: 15px;
+  }
+}
+
+header nav .form {
+  height: 30px;
+  margin-left: 25px;
+  border-left: solid 1px white;
+  padding-left: 20px;
+  color: white;
+  font-size: 20px;
+  line-height: 30px;
+}
+/* End Header */
+
+/* Start Landing */
+.landing {
+  min-height: 100vh;
+  background-color: #19c8fa; /*If the image does not appear*/
+  background-image: url("/images/landing.jpg");
+  background-size: cover;
+  position: relative; /*So come the overlay element directly above it*/
+}
+
+.landing .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 60%);
+}
+
+.landing .text {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  background-color: var(--transparent-color);
+  padding: 50px;
+  display: flex;
+  justify-content: flex-end;
+  max-height: 70%;
+  overflow: auto;
+}
+
+@media (max-width: 767px) {
+  .landing .text {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.text .content {
+  max-width: 500px;
+  color: white;
+  line-height: 1.6;
+}
+
+.text .content h2 {
+  font-weight: normal;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.text .content p {
+  font-size: 14px;
+  line-height: 2;
+}
+
+.landing .change-backgrund {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ddd;
+}
+
+.landing .fa-angle-left {
+  left: 30px;
+}
+
+.landing .fa-angle-right {
+  right: 30px;
+}
+
+@media (max-width: 767px) {
+  .landing .change-backgrund {
+    display: none;
+  }
+}
+
+.landing .bullets {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(20px * 4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landing .bullets li {
+  width: 20px;
+  height: 20px;
+  border: solid #ddd 2px;
+  border-radius: 50%;
+}
+
+.landing .bullets li.active {
+  border-color: var(--main-color);
+  background-color: var(--main-color);
+}
+/* End Landing */
